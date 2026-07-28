@@ -1,0 +1,50 @@
+{
+  "counts": {
+    "all": 524,
+    "charts": 516,
+    "folds": 4,
+    "gaps": 4
+  },
+  "coverage": {
+    "baseline": "32 civil epochs x 16 public global coordinates",
+    "boundary_scan": "not included in v1",
+    "dst_folds": 4,
+    "dst_gaps": 4,
+    "historical_timezones": 4,
+    "polar_scan": "not included in v1"
+  },
+  "fixture": "chart-vectors.v1.jsonl",
+  "notes": [
+    "The Python and browser bindings share Swiss Ephemeris astronomy.",
+    "Fold records contain both valid UTC instants; strict mode requires rejection.",
+    "Dedicated planet ingress, cusp, and polar reference scans are future suites; focused boundary regressions run in the application test suite."
+  ],
+  "reference": {
+    "ephemeris": "Moshier",
+    "house_assignment": "whole-sign from manual sidereal ascendant",
+    "node": "mean",
+    "planet_order": [
+      "Sun",
+      "Moon",
+      "Mercury",
+      "Venus",
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "MeanNode"
+    ],
+    "pyswisseph": "2.10.3.2",
+    "sidereal_mode": "Lahiri",
+    "swiss_engine": "2.10.03",
+    "tzdata": "2025.2"
+  },
+  "schema": 1,
+  "sha256": "dd86ee2e35396240a933ed1b5182b3caadc68cde3b4def251bd6a0abb8b34483",
+  "tolerances": {
+    "canonical_ascendant_diagnostic_degrees": 0.01,
+    "julian_day": 1e-09,
+    "ketu_opposition_degrees": 1e-10,
+    "longitude_degrees": 1e-05,
+    "speed_degrees_per_day": 1e-05
+  }
+}
