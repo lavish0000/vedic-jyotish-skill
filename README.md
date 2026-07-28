@@ -9,19 +9,28 @@ Birth details are not sent to a project-owned server.
 Paste this into GitHub Copilot Agent mode or Copilot CLI:
 
 > Use GitHub CLI 2.90 or later. Run
+> `gh auth status --hostname github.com` first. If it is not authenticated, run
+> `gh auth login --hostname github.com` and wait for me to finish signing in.
+> Then run
 > `gh skill preview lavish0000/vedic-jyotish-skill read-vedic-jyotish`.
-> After I approve the preview, run
+> Show me the preview and stop until I explicitly approve it. After I approve,
+> run
 > `gh skill install lavish0000/vedic-jyotish-skill read-vedic-jyotish --agent github-copilot --scope user`.
-> Reload skills if the current session requires it, then use
-> `/read-vedic-jyotish` to give me a detailed Vedic Jyotish reading. Ask me
-> only for missing birth details.
+> If GitHub reports an API rate limit, tell me and stop instead of retrying.
+> In an existing Copilot CLI session, ask me to enter `/skills reload`.
+> If this surface cannot reload skills, ask me to start a new session. Once the
+> skill is available, continue this same request without asking me to paste it
+> again: use `/read-vedic-jyotish` to give me a detailed Vedic Jyotish reading
+> and ask me only for missing birth details.
 
 For a Hinglish reading, add: `Reply in natural Hinglish written in English
 letters.`
 
-If manual installation is preferred, GitHub CLI 2.90 or later supports:
+For manual GitHub Copilot installation, authenticate GitHub CLI 2.90 or later
+before previewing the skill:
 
 ```bash
+gh auth status --hostname github.com
 gh skill preview lavish0000/vedic-jyotish-skill read-vedic-jyotish
 gh skill install lavish0000/vedic-jyotish-skill read-vedic-jyotish \
   --agent github-copilot --scope user
