@@ -38,11 +38,17 @@ function structuredError(error: unknown) {
     };
   }
   if (error instanceof Error) {
-    const code = error.message.includes("ambiguous")
-      ? "ambiguous_local_time"
-      : error.message.includes("does not exist")
-        ? "nonexistent_local_time"
-        : "calculation_failed";
+    const invalidInputCodes = [
+      ["ambiguous", "ambiguous_local_time"],
+      ["does not exist", "nonexistent_local_time"],
+      ["Invalid local date or time", "invalid_birth_datetime"],
+      ["Unsupported birth date", "unsupported_birth_date"],
+      ["Birth date is in the future", "future_birth_date"],
+    ] as const;
+    const match = invalidInputCodes.find(([message]) =>
+      error.message.includes(message),
+    );
+    const code = match?.[1] ?? "calculation_failed";
     return {
       status: code === "calculation_failed" ? code : "invalid_input",
       error: {

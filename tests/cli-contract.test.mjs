@@ -95,7 +95,8 @@ test("invalid calendar input returns structured failure without a chart", () => 
   ]);
 
   assert.equal(result.status, 2);
-  assert.equal(result.payload.status, "calculation_failed");
+  assert.equal(result.payload.status, "invalid_input");
+  assert.equal(result.payload.error.code, "invalid_birth_datetime");
   assert.match(result.payload.error.message, /Invalid local date or time/);
   assert.equal(result.payload.chart, undefined);
 });
