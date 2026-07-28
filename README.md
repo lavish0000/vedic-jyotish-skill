@@ -8,19 +8,32 @@ Birth details are not sent to a project-owned server.
 
 Paste this into GitHub Copilot Agent mode or Copilot CLI:
 
-> Preview and install the `read-vedic-jyotish` skill from
-> `https://github.com/lavish0000/vedic-jyotish-skill` at user scope. After
-> installation, use it to give me a detailed Vedic Jyotish reading.
+> Use GitHub CLI 2.90 or later. Run
+> `gh skill preview lavish0000/vedic-jyotish-skill read-vedic-jyotish`.
+> After I approve the preview, run
+> `gh skill install lavish0000/vedic-jyotish-skill read-vedic-jyotish --agent github-copilot --scope user`.
+> Reload skills if the current session requires it, then use
+> `/read-vedic-jyotish` to give me a detailed Vedic Jyotish reading. Ask me
+> only for missing birth details.
+
+For a Hinglish reading, add: `Reply in natural Hinglish written in English
+letters.`
 
 If manual installation is preferred, GitHub CLI 2.90 or later supports:
 
 ```bash
 gh skill preview lavish0000/vedic-jyotish-skill read-vedic-jyotish
-gh skill install lavish0000/vedic-jyotish-skill read-vedic-jyotish --scope user
+gh skill install lavish0000/vedic-jyotish-skill read-vedic-jyotish \
+  --agent github-copilot --scope user
 ```
 
 The first calculation may require approval to run the bundled local script.
 No external model key or hosted calculation service is required.
+This project does not retain birth profiles or receive chart requests. The
+calculator does not send the birth date, time, or chart to a project-owned
+service. The host handles conversation data under its own privacy settings.
+If coordinates are not supplied, the calculator additionally sends only the
+birthplace search text to Open-Meteo for place resolution.
 
 ## Method
 

@@ -104,6 +104,7 @@ function candidateLabel(item: GeocodingItem) {
     .join(", ");
 }
 
+// TODO: add an optional offline gazetteer after a size-bounded dataset is selected.
 async function searchPlaces(query: string): Promise<PlaceCandidate[]> {
   const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
   url.searchParams.set("name", query);

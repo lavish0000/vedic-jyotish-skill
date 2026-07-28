@@ -54,6 +54,7 @@ If the user supplies coordinates, also require an IANA timezone such as
 ## Commands
 
 Run from the directory containing `SKILL.md`.
+The examples below use synthetic test input, not a saved birth profile.
 
 Search for a place:
 
