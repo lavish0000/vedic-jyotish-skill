@@ -128,6 +128,12 @@ reshape the calculation to fit a biography.
 State the `as-of` date and current Mahadasha and Antardasha with their date
 windows.
 
+Treat the calculator's returned ISO timestamps as canonical. For a date-only
+window, use the `YYYY-MM-DD` calendar date from each returned timestamp; do
+not re-localize or recalculate it. If the user asks for an exact local
+transition time, show the returned UTC instant and label any timezone
+conversion explicitly.
+
 Describe a domain as currently foregrounded only when it appears in
 `dashaThemes.current.domains` or has matching dasha evidence. Describe the
 next Antardasha only from returned next-period data.
